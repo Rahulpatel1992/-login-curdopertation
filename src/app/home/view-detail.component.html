@@ -1,0 +1,38 @@
+
+<app-header></app-header>
+<br>
+<div class="container v-detail">
+    <h3>View Detail</h3>
+    <br>
+<table>
+    <tr>
+      <th>Name</th>
+      <th>Detail</th>
+      
+    </tr>
+    <tr>
+      <td>Id:</td>
+      <td>{{book.id}}</td>
+    </tr>
+
+    <tr>
+        <td>Name:</td>
+        <td>{{book.name}}</td>
+      </tr>
+
+
+      <tr>
+          <td>Price:</td>
+          <td>{{book.price}}</td>
+        </tr>
+
+        <tr>
+            <td>Description</td>
+            <td>{{book.description}}</td>
+        </tr>
+    </table>
+    <div>
+        <button (click)="goBack()">Go Back</button>
+        <button (click)="updateBook(book.id)">Update</button>
+    </div>
+  </div>

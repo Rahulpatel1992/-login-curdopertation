@@ -1,0 +1,40 @@
+
+<app-header></app-header>
+<br>
+<div class="container ">
+<h2>Update Book</h2>
+<br>
+<div class="v-detail">
+ <div>
+    <label>Id: </label> {{book.id}}
+ </div>	
+ <div class="form-group row">
+        <label for="example-url-input" class="col-2 col-form-label">Name:</label>
+        <div class="col-7">
+          <input class="form-control" [(ngModel)]="book.name">
+        </div>
+      </div>
+
+      <div class="form-group row">
+            <label for="example-url-input" class="col-2 col-form-label">Price:</label>
+            <div class="col-7">
+              <input class="form-control" [(ngModel)]="book.price">
+            </div>
+          </div>
+
+          <div class="form-group row">
+                <label for="example-url-input" class="col-2 col-form-label">Short Description:</label>
+                <div class="col-7">
+                  <input class="form-control" [(ngModel)]="book.description">
+                </div>
+              </div>
+
+ <div> 
+    <button (click)="goBack()">Go Back</button>
+ </div> 
+</div> 
+</div>
+
+
+
+

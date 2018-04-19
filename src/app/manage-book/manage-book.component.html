@@ -1,0 +1,15 @@
+<app-header></app-header>
+<br>
+<div class="container">
+<h2>MANAGE BOOK</h2>
+<ul [ngClass] = "'manage-book'" style="list-style-type: none">
+  <li *ngFor="let book of books" >
+    Id: {{book.id}}, Name = {{book.name}}
+	  <button (click)="updateBook(book.id)">Update</button>
+	  <button (click)="deleteBook(book.id)">Remove</button>
+  </li>
+</ul>
+</div>
+
+
+

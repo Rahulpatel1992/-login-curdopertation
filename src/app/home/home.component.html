@@ -1,0 +1,33 @@
+
+<app-header></app-header>
+<div class="container">
+  <h2>Book Details</h2>
+  <br>
+  <div class="h_ome">
+    <div class="row">
+  <div class="col-md-2">Search by:</div>
+  <div class="col-md-4"> 
+      <input type="text" [(ngModel)] = 'listFilter'/>
+  </div>
+</div>
+  <br>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let book of books| filterPipe: listFilter " style="list-style-type: none">
+      <td>{{book.id}}</td>
+      <td>{{book.name}}</td>
+      <td><a [routerLink]="['/view-detail', book.id]">View Detail</a></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+

@@ -1,0 +1,25 @@
+h2 {
+  font-size: 1.5em;
+  margin-top: 10;
+}
+.home {
+	padding: 0;	
+}
+.home  a{
+  margin-top: 10px;
+  display: inline-block;
+  background-color: #eee;
+  text-decoration: none;
+}
+.h_ome{
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.3);
+  padding: 15px 15px;
+  background-color: #fafafa;
+}
+
+thead tr th{
+  text-align: center;
+}
+ tr td{
+  text-align: center;
+}
