@@ -1,20 +1,25 @@
 import { Injectable } from '@angular/core';
 import { Book } from './book';
 import { BOOKS } from './mock-books';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ApiserviceService } from './apiservice.service'
 
 @Injectable()
 export class BookService {
+	ApiserviceService: any; 
+	constructor( private apiserviceService: ApiserviceService , private router: Router ) { }
     getBooks(): Promise<Book[]> {
         return Promise.resolve(BOOKS);
-    }
-	addBook(book:Book): void {
-		this.getBooks().then(books => {
-		    let maxIndex = books.length - 1;
-			let bookWithMaxIndex = books[maxIndex];
-			book.id = bookWithMaxIndex.id + 1;
-			books.push(book);}
-		);
-    }
+	}
+	
+	// addBook(book:Book): void {
+	// 	this.getBooks().then(books => {
+	// 	    let maxIndex = books.length - 1;
+	// 		let bookWithMaxIndex = books[maxIndex];
+	// 		book.id = bookWithMaxIndex.id + 1;
+	// 		books.push(book);}
+	// 	);
+    // }
 	getBook(id: number): Promise<Book> {
         return this.getBooks()
             .then(books => books.find(book => book.id === id));
@@ -25,5 +30,16 @@ export class BookService {
             let bookIndex = books.indexOf(book);
             books.splice(bookIndex, 1);}
 		);
-    }
+	}
+	
+	addBooks(name:string,price:string,description:string ){
+		// let tmp : any
+		// tmp = { names : name, prices : price, descriptions : description };
+		// let temp = JSON.stringify(tmp);
+		//console.log(temp)
+		// this.ApiserviceService.addBook(tmp)
+	}
+
+
 }
+

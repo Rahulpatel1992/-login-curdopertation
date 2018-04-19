@@ -12,11 +12,14 @@ import { BookService } from '../services/book.service';
 	styleUrls: ['./view-detail.component.css']
 })
 export class ViewDetailComponent implements OnInit { 
-	book: Book = new Book();
+    book: Book = new Book();
 	constructor(private route: ActivatedRoute,
 	            private router: Router,
 	            private bookService: BookService,
-				private location: Location) { }
+				private location: Location) {
+
+                    
+                 }
     ngOnInit(): void {
         this.route.params
         .switchMap((params: Params) => this.bookService.getBook(+params['id']))

@@ -10,10 +10,8 @@ import {Book} from './services/book';
     
 )
 export class ProductFilterPipe implements PipeTransform{
-
 transform(value: Book[], filterBy:string)  : Book[]{
     filterBy = filterBy? filterBy.toLocaleLowerCase():null;
-
 return filterBy? value.filter((product: Book) => product.name.toLocaleLowerCase()
 .indexOf(filterBy) !== -1): value;
 }

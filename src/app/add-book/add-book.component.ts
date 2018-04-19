@@ -9,7 +9,11 @@ import { BookService } from '../services/book.service';
     templateUrl: './add-book.component.html',
 	styleUrls: ['./add-book.component.css']
 })
-export class AddBookComponent implements OnInit { 
+export class AddBookComponent implements OnInit {
+    name: any;
+    price: any;
+    description: any;
+
     books: Book[];
 	book: Book = new Book();
 	constructor(private router: Router,
@@ -18,11 +22,15 @@ export class AddBookComponent implements OnInit {
         this.bookService.getBooks().then(books => this.books = books);
     }
     ngOnInit(): void {
-        this.getBooks();
+        this.getBooks();     
     }
-    addBook(): void {
-	    this.bookService.addBook(this.book);
-		this.router.navigate(['/home']);
-    }	
+    // addBook() {
+    //     //this.bookService.addBooks(this.name,this.price,this.description);       
+    //     //this.router.navigate(['/home']);
+    // }
+    addBook(){
+        //console.log(this.id + "<br />" + this.name + "<br />" + this.price + "<br />" +this.description );
+        this.bookService.addBooks( this.name, this.price,this.description );
+    }
 }
-    
+  

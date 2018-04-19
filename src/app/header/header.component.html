@@ -12,10 +12,11 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/manage-book" routerLinkActive="active-link">MANAGE BOOK</a>
         </li>
+        <li class="nav-item btnlogout">
+            <a class="nav-link" routerLink="/login" routerLinkActive="active-link" (click)="logout()"> Logout</a>
+          </li>
       </ul>
-        <li style="list-style-type: none">
-          <a routerLink="/login" routerLinkActive="active-link" (click)="logout()"> Logout</a>
-        </li>
+      
       
     </div>
   </nav>

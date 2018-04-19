@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule }   from '@angular/forms';
-
+import { HttpModule } from '@angular/http';
+import 'rxjs/add/operator/map';
 
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent }  from './page-not-found.component';
@@ -17,6 +18,7 @@ import { LoginFormComponent } from './login-form/login-form.component'
 import { AuthGuard } from './services/user.service';
 // import { AuthguardGuard } from './authguard.guard';
 import { HeaderComponent } from './header/header.component';
+import {ApiserviceService} from './services/apiservice.service'
 
 
 
@@ -38,9 +40,10 @@ import { HeaderComponent } from './header/header.component';
   imports: [
 		BrowserModule,
 		FormsModule,
-		AppRoutingModule
+		AppRoutingModule,
+		HttpModule,
   ],
-  providers: [BookService,AuthGuard ],
+  providers: [BookService, ApiserviceService, AuthGuard, ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

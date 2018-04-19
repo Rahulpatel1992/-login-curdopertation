@@ -1,0 +1,11 @@
+ .btnlogout{
+    background: cornflowerblue;
+ }
+
+ .btnlogout a{
+     color: white;
+ }
+
+ .btnlogout a:hover{
+     color: white;
+ }
