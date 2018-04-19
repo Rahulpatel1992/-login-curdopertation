@@ -28,9 +28,11 @@ export class AddBookComponent implements OnInit {
     //     //this.bookService.addBooks(this.name,this.price,this.description);       
     //     //this.router.navigate(['/home']);
     // }
-    addBook(){
-        //console.log(this.id + "<br />" + this.name + "<br />" + this.price + "<br />" +this.description );
-        this.bookService.addBooks( this.name, this.price,this.description );
+    AddBook(){
+         //console.log(this.name + "<br />" + this.price + "<br />" +this.description );
+        this.bookService.AddBook( this.name, this.price,this.description );
     }
+
+    
 }
   

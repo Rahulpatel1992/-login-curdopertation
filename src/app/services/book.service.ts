@@ -6,7 +6,8 @@ import { ApiserviceService } from './apiservice.service'
 
 @Injectable()
 export class BookService {
-	ApiserviceService: any; 
+	URL : string = "https://booksapp-d4e48.firebaseio.com/data.json";
+headers: Headers;
 	constructor( private apiserviceService: ApiserviceService , private router: Router ) { }
     getBooks(): Promise<Book[]> {
         return Promise.resolve(BOOKS);
@@ -32,13 +33,21 @@ export class BookService {
 		);
 	}
 	
-	addBooks(name:string,price:string,description:string ){
-		// let tmp : any
-		// tmp = { names : name, prices : price, descriptions : description };
-		// let temp = JSON.stringify(tmp);
-		//console.log(temp)
-		// this.ApiserviceService.addBook(tmp)
-	}
+	// addBooks(name:string,price:string,description:string ){
+	// 	// let tmp : any
+	// 	// tmp = { names : name, prices : price, descriptions : description };
+	// 	// let temp = JSON.stringify(tmp);
+	// 	//console.log(temp)
+	// 	// this.ApiserviceService.addBook(tmp)
+	// }
+
+
+AddBook(name:string,price:string,description:string){
+	let tmp : any;
+	tmp = {name:name, price:price, description:description };
+	let temp = JSON.stringify(tmp);
+	this.apiserviceService.AddBook(temp);
+}
 
 
 }
