@@ -17,9 +17,9 @@ export class UpdateBookComponent implements OnInit {
 	            private bookService: BookService,
 				private location: Location) { }
     ngOnInit(): void {
-        this.route.params
-        .switchMap((params: Params) => this.bookService.getBook(+params['id']))
-        .subscribe(book => this.book = book);
+        // this.route.params
+        // .switchMap((params: Params) => this.bookService.getBook(+params['id']))
+        // .subscribe(book => this.book = book);
     }
     goBack(): void {
         this.location.back();

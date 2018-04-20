@@ -3,6 +3,4 @@ export class Book {
    name: string;
    price: string;
    description: string;
-   constructor() { 
-   }
 }

@@ -9,8 +9,8 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 @Injectable()
 export class ApiserviceService {
-  URL:string = "https://booksapp-d4e48.firebaseio.com/data.json";
-  headers:Headers;
+  URL:string = "https://booksapp-d4e48.firebaseio.com/.json";
+  //headers:Headers;
   name:any;
   price:any;
   description:any;
@@ -24,12 +24,12 @@ export class ApiserviceService {
   }
 
   AddBook( data:any ){ 
-   //console.log(this.headers)
-   return this.http.post( this.URL, data ).map( res  =>
+   //console.log(data)
+   return this.http.post( this.URL, data ).map( response  =>
      {
-      console.log(res) 
-      res.json()
-      console.log(res)
+      console.log(response) 
+      response.json()
+      console.log(response)
      }
   );
    //console.log(data);   

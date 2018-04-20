@@ -4,7 +4,7 @@
 <h2>MANAGE BOOK</h2>
 <ul [ngClass] = "'manage-book'" style="list-style-type: none">
   <li *ngFor="let book of books" >
-    Id: {{book.id}}, Name = {{book.name}}
+    Id: {{book.id}}, Name = {{book.name}}, Description {{book.description}}, Price = {{book.price}}
 	  <button (click)="updateBook(book.id)">Update</button>
 	  <button (click)="deleteBook(book.id)">Remove</button>
   </li>
