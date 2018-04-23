@@ -13,31 +13,17 @@ declare var firebase : any;
 
 export class HomeComponent implements OnInit { 
     //id: any;
-    books: Book[];
+    books: any;
 	constructor( private bookService: BookService, private user: AuthGuard ) {
         
     }
- 
-    // getBooks(): void {
-    //     this.bookService.getBooks().then(books => this.books = books);
-    // }
- 
     ngOnInit(): void {
-        this.bookService.fetchData().subscribe( ( data ) =>{
-            
-            this.books = data
-            // let a = Array.of(data)
-            // console.log(a)
-            console.log(this.books)
+        this.bookService.getMe().subscribe( data => {
+            var arr = Object.values(data)
+            this.books = arr
+			console.log(this.books)
         })
-        this.fbGData()
     }
     
-    fbGData() {
-        firebase.database().ref('/').on("child_added", ( snapshot ) => {
-            //console.log(snapshot.val())
-            //this.books.push(snapshot.val())
-        })
-    }
 }
     

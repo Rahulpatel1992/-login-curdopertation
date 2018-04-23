@@ -16,6 +16,8 @@
         <tr>
           <th scope="col">id</th>
           <th scope="col">Name</th>
+          <th scope="col">Price</th>
+          <th scope="col">Description</th>
           <th scope="col">Action</th>
         </tr>
       </thead>
@@ -23,6 +25,8 @@
         <tr *ngFor="let book of books | filterPipe: listFilter; let i = index" style="list-style-type: none">
           <td>{{i+1}}</td>
           <td>{{book.name}}</td>
+          <td>{{book.price}}</td>
+          <td>{{book.description}}</td>
           <td><a [routerLink]="['/view-detail', book.id]">View Detail</a></td>
         </tr>
       </tbody>

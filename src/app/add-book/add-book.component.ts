@@ -12,32 +12,23 @@ declare var firebase: any;
 	styleUrls: ['./add-book.component.css']
 })
 export class AddBookComponent implements OnInit {
-    
     books: Book[];
 	book: Book = new Book();
-	constructor(private router: Router,
-	            private bookService: BookService) { }
-    // getBooks(): void {
-    //  this.bookService.getBooks().then(books => this.books = books);
-    // }
-    ngOnInit(): void {
-        // this.fbGData()
+	constructor(
+        private router: Router,
+        private bookService: BookService
+    ){
+        
     }
-    // addBook() {
-    //     //this.bookService.addBooks(this.name,this.price,this.description);       
-    //     //this.router.navigate(['/home']);
-    // }
+    ngOnInit(): void {
+        
+    }
     AddBook( name, price, description ){
         let id = Math.random()
-        let temp = {name:name, price:price, description:description, id:id}
-        firebase.database().ref('/').push(temp)
-
+        let temp = {name:name,price:price,description:description,id:id}
+        //this.bookService.addBook(temp)
+        var rootURL = firebase.database().ref('/data')
+        rootURL.push(temp)
     }
-    // fbGData(){
-    //     firebase.database().ref('/').on("child_added", ( snapshot ) => {
-    //         //console.log(snapshot.val())
-    //         //this.books.push(snapshot.val())
-    //     })
-    // }
 }
   

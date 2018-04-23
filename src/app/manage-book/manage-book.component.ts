@@ -11,24 +11,25 @@ import { BookService } from '../services/book.service';
 	styleUrls: ['./manage-book.component.css']
 })
 export class ManageBookComponent implements OnInit { 
-    books: Book[];
-	book: Book = new Book();
-	constructor(private router: Router,
-				private bookService: BookService,
-				// private http:Http	
-			) { }
-    /* getBooks(): void {
-        this.bookService.getBooks().then(books => this.books = books);
-    } */
-    ngOnInit() {
-		this.bookService.fetchData().subscribe( 
-			(data) => console.log(data)//this.books = data
-		)
-		// this.getBooks();
-    }
-	updateBook(id:number): void {
-		this.router.navigate(['/update-book', id]);
+    books:any;
+	//book:Book = new Book();
+	constructor(
+		private router:Router,
+		private bookService: BookService
+	){
+		
 	}
+			
+    ngOnInit() {
+		this.bookService.getMe().subscribe( data => {
+            var arr = Object.values(data)
+			this.books = arr
+			console.log(this.books)
+        })
+    }
+	/* updateBook(id:number): void {
+		this.router.navigate(['/update-book', id]);
+	} */
 	
 	// deleteBook(id:number): void {
 	// 	this.bookService.deleteBook(id);
