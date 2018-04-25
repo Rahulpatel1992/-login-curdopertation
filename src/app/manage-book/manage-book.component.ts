@@ -15,7 +15,7 @@ export class ManageBookComponent implements OnInit {
 	//book:Book = new Book();
 	constructor(
 		private router:Router,
-		private bookService: BookService
+		private bookService:BookService
 	){
 		
 	}
@@ -24,12 +24,12 @@ export class ManageBookComponent implements OnInit {
 		this.bookService.getMe().subscribe( data => {
             var arr = Object.values(data)
 			this.books = arr
-			console.log(this.books)
+			//console.log(this.books)
         })
     }
-	/* updateBook(id:number): void {
+	updateBook(id:number): void {
 		this.router.navigate(['/update-book', id]);
-	} */
+	}
 	
 	// deleteBook(id:number): void {
 	// 	this.bookService.deleteBook(id);

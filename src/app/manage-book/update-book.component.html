@@ -1,38 +1,35 @@
-
 <app-header></app-header>
-<br>
+<br />
 <div class="container ">
-<h2>Update Book</h2>
-<br>
-<div class="v-detail">
- <div>
-    <label>Id: </label> {{book.id}}
- </div>	
- <div class="form-group row">
-        <label for="example-url-input" class="col-2 col-form-label">Name:</label>
-        <div class="col-7">
-          <input class="form-control" [(ngModel)]="book.name" />
-        </div>
+  <h2>Update Book</h2>
+  <br />
+  <div class="v-detail">
+    <div class="col-sm-4 p-0" >
+      <label class="btn-secondary text-white pl-3 pr-3 pt-1 pb-1" style="width:100%">Id: {{book.id}}</label>
+    </div>
+    <div class="form-group row mt-4">
+      <label for="example-url-input" class="col-2 col-form-label">Name:</label>
+      <div class="col-7">
+        <input class="form-control" [(ngModel)]="book.name" />
       </div>
-
-      <div class="form-group row">
-            <label for="example-url-input" class="col-2 col-form-label">Price:</label>
-            <div class="col-7">
-              <input class="form-control" [(ngModel)]="book.price" />
-            </div>
-          </div>
-
-          <div class="form-group row">
-                <label for="example-url-input" class="col-2 col-form-label">Short Description:</label>
-                <div class="col-7">
-                  <input class="form-control" [(ngModel)]="book.description" />
-                </div>
-              </div>
-
- <div> 
-    <button (click)="goBack()">Go Back</button>
- </div> 
-</div> 
+    </div>
+    <div class="form-group row">
+      <label for="example-url-input" class="col-2 col-form-label">Price:</label>
+      <div class="col-7">
+        <input class="form-control" [(ngModel)]="book.price" />
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="example-url-input" class="col-2 col-form-label">Short Description:</label>
+      <div class="col-7">
+        <input class="form-control" [(ngModel)]="book.description" />
+      </div>
+    </div>
+    <div> 
+      <button (click)="goBack()">Go Back</button>
+      <button (click)="save()">Save</button>
+    </div> 
+  </div> 
 </div>
 
 

@@ -18,7 +18,8 @@
           <th scope="col">Name</th>
           <th scope="col">Price</th>
           <th scope="col">Description</th>
-          <th scope="col">Action</th>
+          <th scope="col">View</th>
+          <th scope="col">Delete</th>
         </tr>
       </thead>
       <tbody>
@@ -27,7 +28,8 @@
           <td>{{book.name}}</td>
           <td>{{book.price}}</td>
           <td>{{book.description}}</td>
-          <td><a [routerLink]="['/view-detail', book.id]">View Detail</a></td>
+          <td><a class="btn btn-primary text-white pl-2 pr-2 pt-0 pb-0" (click)=view(book.id)>View Detail</a></td><!-- [routerLink]="['/view-detail', book.id]" -->
+          <td><a class="btn btn-danger text-white pl-2 pr-2 pt-0 pb-0" (click)=del(book.id)>Delete</a></td>
         </tr>
       </tbody>
     </table>

@@ -13,32 +13,27 @@ import { BookService } from '../services/book.service';
 })
 
 export class ViewDetailComponent implements OnInit { 
-    //book:any
-    id:number
-    private sub : any
     book: Book = new Book();
 	constructor(
         private route:ActivatedRoute,
 	    private router:Router,
 	    private bookService:BookService,
         private location:Location
-    ){
-        
-    }
+    ){ }
+
     ngOnInit():void{
-        //this.fetch
+        let uid = this.route.snapshot.paramMap.get('id')
+        this.bookService.getMe().subscribe( data => {
+            let arr = Object.values(data)
+            var item = arr.find( item => item.id == uid )
+            this.book = item
+        })
     }
     goBack():void{
         this.location.back();
     }
 	updateBook(id:number):void{
 		this.router.navigate(['/update-book', id]);
-    }
-    fetch() {    
-        this.route.params.subscribe( params => {
-            this.id = +params['id'];
-            console.log(this.id)
-        })
     }
 }
     
