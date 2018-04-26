@@ -25,9 +25,10 @@
         <input class="form-control" [(ngModel)]="book.description" />
       </div>
     </div>
-    <div> 
+    <div>
       <button (click)="goBack()">Go Back</button>
-      <button (click)="save()">Save</button>
+      <button (click)="del(key)">Delete</button>
+      <button (click)="save(key)">Save</button>
     </div> 
   </div> 
 </div>

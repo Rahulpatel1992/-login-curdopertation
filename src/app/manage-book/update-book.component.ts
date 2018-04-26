@@ -6,6 +6,7 @@ import { Book } from '../services/book';
 import { BookService } from '../services/book.service';
 
 declare var firebase:any
+import * as _ from "lodash"
 
 @Component({
     selector: 'update-book-app',
@@ -15,48 +16,31 @@ declare var firebase:any
 
 export class UpdateBookComponent implements OnInit{
     uid:any
-    key:string[]=[]
-    book:Book=new Book();
-    constructor(private route:ActivatedRoute,
+    key:any
+    book:Book= new Book();
+    constructor( private route:ActivatedRoute,
                 private router:Router,
 	            private bookService:BookService,
-                private location:Location){}
+                private location:Location ){}
 
-    ngOnInit(): void {
-        this.uid=this.route.snapshot.paramMap.get('id')
-        this.bookService.getMe().subscribe(data=>{
-            // find key
-            this.key = Object.keys(data)
-            // find uid
+    ngOnInit():void {
+        this.uid = this.route.snapshot.paramMap.get('id')
+        this.bookService.getMe().subscribe( data => {
             let arr = Object.values(data)
             var item = arr.find( it => it.id == this.uid )
             this.book = item
-            
-            for( let i = 0 ; i < this.key.length; i++ ){
-                console.log(this.key[i])
-                var is = Object.hasOwnProperty('id')
-                if (!is){
-                    console.log("s")
-                }
-            }
-            var findKey(data, this.uid);
-            //console.log(this.key)
-            // let find = Object.hasOwnProperty('id')
-            // console.log(find)        
+            var skey = _.findKey( data, this.book )
+            this.key = skey
         })
     }
-    goBack():void{
+    goBack():void {
         this.location.back();
     }
-    save(){
-        console.log(this.key)
-        // var rootURL=firebase.database().ref('/data')
-    	// rootURL.on("value",snapshot=>{
-        //     snapshot.forEach(el=>{
-        //         this.key.push(el.key)
-        //     })
-        //     console.log(this.key)
-        // })
-        // this.bookService.save().subscribe( el => el )
+    save(key){
+        firebase.database().ref('data/' + key ).set(this.book)
+    }
+    del(key){
+       firebase.database().ref('data/' + key ).remove()
+       this.router.navigate(['/']) 
     }
 }

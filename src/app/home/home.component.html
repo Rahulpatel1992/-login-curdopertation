@@ -1,8 +1,7 @@
-
 <app-header></app-header>
 <div class="container">
+  <br />
   <h2>Book Details</h2>
-  <br>
   <div class="h_ome">
     <div class="row">
       <div class="col-md-2">Search by:</div>
@@ -19,7 +18,6 @@
           <th scope="col">Price</th>
           <th scope="col">Description</th>
           <th scope="col">View</th>
-          <th scope="col">Delete</th>
         </tr>
       </thead>
       <tbody>
@@ -29,13 +27,8 @@
           <td>{{book.price}}</td>
           <td>{{book.description}}</td>
           <td><a class="btn btn-primary text-white pl-2 pr-2 pt-0 pb-0" (click)=view(book.id)>View Detail</a></td><!-- [routerLink]="['/view-detail', book.id]" -->
-          <td><a class="btn btn-danger text-white pl-2 pr-2 pt-0 pb-0" (click)=del(book.id)>Delete</a></td>
         </tr>
       </tbody>
     </table>
   </div>
 </div>
-
-
-
-
